@@ -1,14 +1,18 @@
+<?php
 namespace AppBundle\Controller;
 
-use Symfony\Component\HttpFoundation\Response;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Response;
 
-class LoginController {
+class LoginController
+{
 
-  /**
-   * @Route("/login")
-   */
-  public function login() {
-    return new Response('Hat geklappt');
-  }
+    /**
+     * @Route("/login")
+     */
+    public function loginAction()
+    {
+        return new Response('Hat geklappt');
+    }
 }
+?>
