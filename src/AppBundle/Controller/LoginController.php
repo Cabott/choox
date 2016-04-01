@@ -3,16 +3,18 @@ namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class LoginController
+class LoginController extends Controller
 {
 
     /**
-     * @Route("/login")
+     * @Route("/login/{user}")
      */
-    public function loginAction()
+    public function loginAction($user)
     {
-        return new Response('Hat geklappt');
+      $html=$this->render('login/index.html.twig',['user'=> $user]);
+        return new Response($html);
     }
 }
 ?>
