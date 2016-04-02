@@ -29,7 +29,7 @@
         "incenteev/composer-parameter-handler": "^2.0",
         "braincrafted/bootstrap-bundle": "~2.0",
         "twbs/bootstrap": "3.0.*",
-        "jquery/jquery":  "1.11.*",
+        "components/jquery":  "1.11.*",
         "symfony/assetic-bundle": "^2.8",
         "leafo/lessphp": "dev-master"
     },

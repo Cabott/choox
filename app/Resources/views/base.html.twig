@@ -7,6 +7,7 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
         <link href="../../../vendor/twbs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" media="screen">
         <link href="../../../web/css/main.css" rel="stylesheet" media="screen">
+        <script src="../../../vendor/components/jquery/jquery.min.js"></script>
 
         <!-- HTML5 Shim and Respond.js add IE8 support of HTML5 elements and media queries -->
         {% include 'BraincraftedBootstrapBundle::ie8-support.html.twig' %}
@@ -21,9 +22,29 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-                        <li><a href="#">Link</a></li>
+                                <li class="dropdown">
+                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Logos <span class="caret"></span></a>
+                                  <ul class="dropdown-menu">
+                                    <li><a href="#">New</a></li>
+                                    <li><a href="#">Unsolved</a></li>
+                                    <li><a href="#">All</a></li>
+                                  </ul>
+                                </li>
+                        <li><a href="#">Statistics</a></li>
+                        <li><a href="#">Rankings</a></li>
                     </ul>
+                    <ul class="nav navbar-nav navbar-right">
+  <li><a href="#">Admin!</a></li>
+  <li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{user}} <span class="caret"></span></a>
+    <ul class="dropdown-menu">
+      <li><a href="#">{{user}}</a></li>
+      <li><a href="#">Friends</a></li>
+      <li role="separator" class="divider"></li>
+      <li><a href="#">Settings</a></li>
+    </ul>
+  </li>
+</ul>
                 </div>
             </div>
         </nav>
