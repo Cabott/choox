@@ -1,0 +1,27 @@
+{
+  "name": "api_test_client",
+  "description": "",
+  "main": [],
+  "dependencies": {},
+  "devDependencies": {
+    "jquery": "^2.2.1",
+    "bootstrap": "^3.3.6",
+    "jquery-ui": "^1.11.4"
+  },
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [],
+  "authors": [
+    "Maria Soliman"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "private": true
+}

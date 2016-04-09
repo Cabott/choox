@@ -5,8 +5,7 @@
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-        <link href="../../../vendor/twbs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" media="screen">
-        <link href="../../../web/css/main.css" rel="stylesheet" media="screen">
+        <link href="{{ asset('css/main.css') }}" rel="stylesheet" media="screen">
 
         <!-- HTML5 Shim and Respond.js add IE8 support of HTML5 elements and media queries -->
         {% include 'BraincraftedBootstrapBundle::ie8-support.html.twig' %}
@@ -22,19 +21,39 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-                        <li><a href="#">Link</a></li>
+                        <li>
+                            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                                {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
+                                <a href="{{ path('fos_user_security_logout') }}">
+                                    {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                                </a>
+                            {% else %}
+                                <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+                            {% endif %}
+                        </li>
                     </ul>
                 </div>
             </div>
         </nav>
         <div class="container">
+            {% for type, messages in app.session.flashBag.all %}
+                {% for message in messages %}
+                    <div class="{{ type }}">
+                        {{ message|trans({}, 'FOSUserBundle') }}
+                    </div>
+                {% endfor %}
+            {% endfor %}
+
+            <div>
+                {% block fos_user_content %}
+                {% endblock fos_user_content %}
+            </div>
+
             {% block body %}{% endblock %}
         </div>
         {% block javascripts %}
             <!-- jQuery (necessary for Bootstraps JavaScript plugins) -->
-            <script src="../../../vendor/jquery/jquery/jquery-1.11.1.js"></script>
-            <!-- Include all JavaScripts, compiled by Assetic -->
-            <script src="../../../vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
+            <script src=""></script>
         {% endblock %}
     </body>
 </html>

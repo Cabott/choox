@@ -4,6 +4,9 @@
     <div id="wrapper">
         <div id="container">
             <div id="welcome">
+                {% for season in seasons %}
+                {{ season.caption }} <br>
+                {% endfor %}
                 <h1><span>Welcome to</span> Symfony {{ constant('Symfony\\Component\\HttpKernel\\Kernel::VERSION') }}</h1>
             </div>
 
