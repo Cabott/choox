@@ -6,6 +6,7 @@
         {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
         <link href="{{ asset('css/main.css') }}" rel="stylesheet" media="screen">
+        <link href="{{ asset('css/jquery-ui.css') }}" rel="stylesheet" media="screen">
 
         <!-- HTML5 Shim and Respond.js add IE8 support of HTML5 elements and media queries -->
         {% include 'BraincraftedBootstrapBundle::ie8-support.html.twig' %}
@@ -31,6 +32,12 @@
                                 <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
                             {% endif %}
                         </li>
+                        {% if not is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                        <li><a href="{{ path('fos_user_registration_register') }}">
+                                {{ 'layout.register'|trans({}, 'FOSUserBundle') }}
+                            </a>
+                        </li>
+                        {% endif %}
                     </ul>
                 </div>
             </div>
@@ -46,6 +53,7 @@
 
             <div>
                 {% block fos_user_content %}
+                    {% trans_default_domain 'FOSUserBundle' %}
                 {% endblock fos_user_content %}
             </div>
 
@@ -53,7 +61,8 @@
         </div>
         {% block javascripts %}
             <!-- jQuery (necessary for Bootstraps JavaScript plugins) -->
-            <script src=""></script>
+            <script src="{{ asset('js/jquery.min.js') }}"></script>
+            <script src="{{ asset('js/jquery-ui.min.js') }}"></script>
         {% endblock %}
     </body>
 </html>

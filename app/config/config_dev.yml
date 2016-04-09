@@ -11,10 +11,6 @@ web_profiler:
     toolbar: true
     intercept_redirects: false
 
-services:
-    teamprovider:
-        class:    AppBundle\Service\TeamProvider
-
 monolog:
     handlers:
         main:

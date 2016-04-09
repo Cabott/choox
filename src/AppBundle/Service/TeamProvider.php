@@ -35,4 +35,40 @@ class TeamProvider
         $response = $this->client->get($uri, $this->header);
         return json_decode($response->getBody());
     }
+
+    public function getSeasonCaptions()
+    {
+        $uri = 'http://api.football-data.org/v1/soccerseasons/';
+
+        /** @var ResponseInterface $response */
+        $response = $this->client->get($uri, $this->header);
+        $seasons = json_decode($response->getBody());
+        $captions = [];
+        foreach ($seasons as $season) {
+            $captions[] = $season->caption;
+        }
+
+        return json_encode($captions);
+    }
+
+    public function getTeamNames()
+    {
+        $uri = 'http://api.football-data.org/v1/soccerseasons/';
+
+        /** @var ResponseInterface $response */
+        $response = $this->client->get($uri, $this->header);
+        $seasons = json_decode($response->getBody());
+        $teamNames = [];
+        foreach ($seasons as $season) {
+            $uri = 'http://api.football-data.org/v1/soccerseasons/'.$season->id.'/teams';
+            $response = $this->client->get($uri, $this->header);
+            $teams = json_decode($response->getBody());
+
+            foreach ($teams->teams as $team) {
+                $teamNames[] = $team->name;
+            }
+        }
+
+        return json_encode($teamNames);
+    }
 }

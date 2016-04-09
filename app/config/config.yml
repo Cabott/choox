@@ -21,6 +21,7 @@ framework:
     #serializer:      { enable_annotations: true }
     templating:
         engines: ['twig']
+    translator:  { fallback: "%locale%" }
     default_locale:  "%locale%"
     trusted_hosts:   ~
     trusted_proxies: ~
@@ -36,6 +37,8 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
+    globals:
+            teamprovider: "@teamprovider"
 
 # Doctrine Configuration
 doctrine:
@@ -103,4 +106,7 @@ braincrafted_bootstrap:
 fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
-    user_class: AppBundle\Entity\User
+    user_class: Choox\UserBundle\Entity\User
+    registration:
+      form:
+        type: AppBundle\Form\RegistrationType

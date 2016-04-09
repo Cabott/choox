@@ -1,0 +1,17 @@
+{% trans_default_domain 'FOSUserBundle' %}
+<h1>{{ 'registration.heading' | trans }}</h1>
+
+<div class="col-md-8">
+{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+    {{ form_row(form.username) }}
+    {{ form_row(form.plainPassword) }}
+    {{ form_row(form.email) }}
+    {{ form_row(form.favouriteTeam) }}
+
+    {% for season in seasons %}
+    {% endfor %}
+
+        <input type="submit" class="submit btn btn-success" value="{{ 'registration.submit'|trans }}" />
+
+{{ form_end(form) }}
+</div>
