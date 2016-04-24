@@ -1,0 +1,40 @@
+{
+  "name": "choox",
+  "version": "1.0.0",
+  "description": "choox =====",
+  "main": "gulpfile.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "gulp": "^3.9.1"
+  },
+  "devDependencies": {
+    "bower": "^1.7.7",
+    "browserify": "^13.0.0",
+    "browserify-bower": "^0.6.0",
+    "event-stream": "^3.3.2",
+    "glob": "^7.0.3",
+    "gulp": "^3.9.1",
+    "gulp-bower": "0.0.13",
+    "gulp-concat": "^2.6.0",
+    "gulp-less": "^3.0.5",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.5.3",
+    "uglify-stream": "^1.1.0",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Cabott/choox.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Cabott/choox/issues"
+  },
+  "homepage": "https://github.com/Cabott/choox"
+}
