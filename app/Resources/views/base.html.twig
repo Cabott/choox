@@ -24,7 +24,6 @@
                         <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
                         <li>
                             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                                {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
                                 <a href="{{ path('fos_user_security_logout') }}">
                                     {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
                                 </a>
@@ -37,6 +36,9 @@
                                 {{ 'layout.register'|trans({}, 'FOSUserBundle') }}
                             </a>
                         </li>
+                        {% endif %}
+                        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                        {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}
                         {% endif %}
                     </ul>
                 </div>
@@ -61,8 +63,7 @@
         </div>
         {% block javascripts %}
             <!-- jQuery (necessary for Bootstraps JavaScript plugins) -->
-            <script src="{{ asset('js/jquery.min.js') }}"></script>
-            <script src="{{ asset('js/jquery-ui.min.js') }}"></script>
+            <script src="{{ asset('js/main.js') }}"></script>
         {% endblock %}
     </body>
 </html>

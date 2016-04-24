@@ -1,15 +1,7 @@
 {% extends "FOSUserBundle::layout.html.twig" %}
 
 {% block javascripts %}
-    <script>
-        $(function() {
-            var availableTags = {{ teamprovider.getTeamNames() | raw}};
-
-            $( "#fos_user_registration_form_favouriteTeam").autocomplete({
-                source: availableTags,
-                minLength: 2
-            });
-        });
+    <script src="{{ asset('js/autocomplete.js') }}" id="teamprovider" data-team-names="{{ teamprovider.getTeamNames() }}">
     </script>
 {% endblock %}
 
