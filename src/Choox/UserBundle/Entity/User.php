@@ -38,6 +38,10 @@ class User extends \FOS\UserBundle\Model\User
      */
     protected $points = 0;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Choox\Entity\Logo", mappedBy="user")
+     */
+    protected $logos;
 
     public function __construct()
     {
@@ -79,4 +83,38 @@ class User extends \FOS\UserBundle\Model\User
 
 
 
+
+    /**
+     * Add logo
+     *
+     * @param \Choox\UserBundle\Entity\Logo $logo
+     *
+     * @return User
+     */
+    public function addLogo(\Choox\UserBundle\Entity\Logo $logo)
+    {
+        $this->logos[] = $logo;
+
+        return $this;
+    }
+
+    /**
+     * Remove logo
+     *
+     * @param \Choox\UserBundle\Entity\Logo $logo
+     */
+    public function removeLogo(\Choox\UserBundle\Entity\Logo $logo)
+    {
+        $this->logos->removeElement($logo);
+    }
+
+    /**
+     * Get logos
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getLogos()
+    {
+        return $this->logos;
+    }
 }

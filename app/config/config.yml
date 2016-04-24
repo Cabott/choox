@@ -63,6 +63,11 @@ doctrine:
         auto_generate_proxy_classes: "%kernel.debug%"
         naming_strategy: doctrine.orm.naming_strategy.underscore
         auto_mapping: true
+        mappings:
+            Logo:
+              type: annotation
+              dir: '%kernel.root_dir%/../src/Choox/Entity'
+              prefix: Choox\Entity
 
 # Swiftmailer Configuration
 swiftmailer:
