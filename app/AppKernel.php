@@ -19,7 +19,9 @@ class AppKernel extends Kernel
             new \Braincrafted\Bundle\BootstrapBundle\BraincraftedBootstrapBundle(),
             new \Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new \FOS\UserBundle\FOSUserBundle(),
-            new \Choox\UserBundle\ChooxUserBundle()
+            new \Choox\UserBundle\ChooxUserBundle(),
+            new \Choox\ChooxBundle(),
+            new Vich\UploaderBundle\VichUploaderBundle()
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

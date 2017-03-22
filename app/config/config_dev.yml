@@ -6,6 +6,7 @@ framework:
         resource: "%kernel.root_dir%/config/routing_dev.yml"
         strict_requirements: true
     profiler: { only_exceptions: false }
+    validation: { enable_annotations: true }
 
 web_profiler:
     toolbar: true
@@ -60,3 +61,21 @@ braincrafted_bootstrap:
         variables_file: ~
         bootstrap_output: %kernel.root_dir%/Resources/less/bootstrap.less
         bootstrap_template: BraincraftedBootstrapBundle:Bootstrap:bootstrap.less.twig
+
+vich_uploader:
+    db_driver: orm # or mongodb or propel or phpcr
+    mappings:
+            logo_original:
+                uri_prefix:         /images/logos
+                upload_destination: %kernel.root_dir%/../web/images/logos/original
+                namer:              Choox.image_namer
+                inject_on_load:     false
+                delete_on_update:   true
+                delete_on_remove:   true
+            logo_altered:
+                uri_prefix:         /images/logos
+                upload_destination: %kernel.root_dir%/../web/images/logos/altered
+                namer:              Choox.image_namer
+                inject_on_load:     false
+                delete_on_update:   true
+                delete_on_remove:   true

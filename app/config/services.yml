@@ -10,6 +10,8 @@ services:
         class: AppBundle\Form\RegistrationType
         tags:
           - { alias: app_user_registration, name: form.type }
+    choox.image_namer:
+        class: Choox\Vich\UniqueIdNamer
 #    service_name:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]

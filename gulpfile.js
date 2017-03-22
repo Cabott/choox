@@ -12,7 +12,7 @@ var concat     = require('gulp-concat');
 gulp.task('bower', bower);
 
 gulp.task('less', ['bower'], function() {
-    return gulp.src('./src/Assets/less/**/*.less')
+    return gulp.src('./src/css/**/*.less')
         .pipe(less())
         //.pipe(uglify())
         .pipe(gulp.dest('./web/css'));

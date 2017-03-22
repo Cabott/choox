@@ -1,0 +1,22 @@
+{# app/Resources/views/logo/imageUploadPreviews.html.twig #}
+
+{% block _logo_originalLogoFile_row %}
+    <div class="originalLogoFile_row col-md-6 form-group">
+        {{ form_label(form) }}
+        {{ form_errors(form) }}
+        {{ form_widget(form) }}
+    </div>
+{% endblock %}
+
+{% block _logo_alteredLogoFile_row %}
+    <div class="alteredLogoFile_row col-md-6 form-group">
+        {{ form_label(form) }}
+        {{ form_errors(form) }}
+        {{ form_widget(form) }}
+    </div>
+
+    <div class="row form-group imagePreviewRow">
+        <div class="col-md-6"><img src="#" id="originalLogoPreview" hidden /></div>
+        <div class="col-md-6"><img src="#" id="alteredLogoPreview" hidden /></div>
+    </div>
+{% endblock %}
