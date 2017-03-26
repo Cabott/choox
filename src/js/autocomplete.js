@@ -10,4 +10,9 @@ jQuery(function() {
         source: availableTags,
         minLength: 2
     });
+
+    jQuery( "#logo_teamName").autocomplete({
+        source: availableTags,
+        minLength: 2
+    });
 });

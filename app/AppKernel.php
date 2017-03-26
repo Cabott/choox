@@ -20,7 +20,8 @@ class AppKernel extends Kernel
             new \Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new \FOS\UserBundle\FOSUserBundle(),
             new Vich\UploaderBundle\VichUploaderBundle(),
-            new \ChooxBundle\UserBundle\ChooxUserBundle()
+            new \ChooxBundle\UserBundle\ChooxUserBundle(),
+            new \Doctrine\Bundle\DoctrineCacheBundle\DoctrineCacheBundle()
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

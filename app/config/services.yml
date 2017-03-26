@@ -6,6 +6,7 @@ parameters:
 services:
     teamprovider:
         class:    ChooxBundle\Service\TeamProvider
+        arguments: ["@doctrine_cache.providers.team_names_cache"]
     app.form.registration:
         class: ChooxBundle\Form\RegistrationType
         tags:

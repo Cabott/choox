@@ -120,3 +120,8 @@ fos_user:
     from_email:
         address: "noreply@yourcompany.com"
         sender_name: "No Reply"
+
+doctrine_cache:
+    providers:
+        team_names_cache:
+            type: file_system

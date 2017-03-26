@@ -14,5 +14,8 @@
 {% endblock %}
 
 {% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/autocomplete.js') }}" id="teamprovider" data-team-names="{{ teamprovider.getTeamNames() }}">
+    </script>
     <script src="{{ asset('js/imagePreview.js') }}"></script>
 {% endblock %}

@@ -1,6 +1,7 @@
 {% extends "FOSUserBundle::layout.html.twig" %}
 
 {% block javascripts %}
+    {{ parent() }}
     <script src="{{ asset('js/autocomplete.js') }}" id="teamprovider" data-team-names="{{ teamprovider.getTeamNames() }}">
     </script>
 {% endblock %}
