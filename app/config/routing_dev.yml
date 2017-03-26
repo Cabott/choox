@@ -19,3 +19,8 @@ fos_user:
 choox:
     resource: "@ChooxBundle/Controller/"
     type:     annotation
+
+JMSTranslationBundle_ui:
+    resource: '@JMSTranslationBundle/Controller/'
+    type:     annotation
+    prefix:   /_trans

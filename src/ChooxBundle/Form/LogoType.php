@@ -20,7 +20,7 @@ class LogoType extends AbstractType
             ->add('teamName')
             ->add('teamNameAlternative', null, array(
                 'required' => false,
-                'label' => 'Alternative team name'
+                'label' => 'label.teamname.alternative'
             ))
             ->add('teamNameAlternative2', null, array(
                 'required'      => false
@@ -38,7 +38,7 @@ class LogoType extends AbstractType
                 'download_link' => false
             ))
             ->add('save', SubmitType::class, [
-                'label' => 'Create logo',
+                'label' => 'label.logo.create',
                 'attr' => ['class' => 'btn-success']
             ])
         ;
