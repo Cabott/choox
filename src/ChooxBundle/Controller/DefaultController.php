@@ -1,8 +1,8 @@
 <?php
 
-namespace AppBundle\Controller;
+namespace ChooxBundle\Controller;
 
-use AppBundle\Service\TeamProvider;
+use ChooxBundle\Service\TeamProvider;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -12,7 +12,7 @@ class DefaultController extends Controller
     /**
      * @Route("/", name="homepage")
      */
-    public function indexAction(Request $request)
+    public function indexAction()
     {
         /** @var TeamProvider $teamProvider */
         $teamProvider = $this->get('teamprovider');

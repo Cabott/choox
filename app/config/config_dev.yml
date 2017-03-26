@@ -48,10 +48,10 @@ assetic:
 #braincrafted bootstrap configuration
 braincrafted_bootstrap:
     output_dir:
-    assets_dir: %kernel.root_dir%/../vendor/twbs/bootstrap
-    jquery_path: %kernel.root_dir%/../vendor/jquery/jquery/jquery-1.11.1.js
+    assets_dir: '%kernel.root_dir%/../vendor/twbs/bootstrap'
+    jquery_path: '%kernel.root_dir%/../vendor/jquery/jquery/jquery-1.11.1.js'
     css_preprocessor: less # "less", "lessphp", "sass" or "none"
-    fonts_dir: %kernel.root_dir%/../web/fonts
+    fonts_dir: '%kernel.root_dir%/../web/fonts'
     auto_configure:
         assetic: true
         twig: true
@@ -59,7 +59,7 @@ braincrafted_bootstrap:
         knp_paginator: true
     customize:
         variables_file: ~
-        bootstrap_output: %kernel.root_dir%/Resources/less/bootstrap.less
+        bootstrap_output: '%kernel.root_dir%/Resources/less/bootstrap.less'
         bootstrap_template: BraincraftedBootstrapBundle:Bootstrap:bootstrap.less.twig
 
 vich_uploader:
@@ -67,14 +67,14 @@ vich_uploader:
     mappings:
             logo_original:
                 uri_prefix:         /images/logos
-                upload_destination: %kernel.root_dir%/../web/images/logos/original
+                upload_destination: '%kernel.root_dir%/../web/images/logos/original'
                 namer:              Choox.image_namer
                 inject_on_load:     false
                 delete_on_update:   true
                 delete_on_remove:   true
             logo_altered:
                 uri_prefix:         /images/logos
-                upload_destination: %kernel.root_dir%/../web/images/logos/altered
+                upload_destination: '%kernel.root_dir%/../web/images/logos/altered'
                 namer:              Choox.image_namer
                 inject_on_load:     false
                 delete_on_update:   true

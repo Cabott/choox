@@ -1,7 +1,7 @@
 <?php
-// src/AppBundle/Form/RegistrationType.php
+// src/ChooxBundle/Form/RegistrationType.php
 
-namespace AppBundle\Form;
+namespace ChooxBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;

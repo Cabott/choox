@@ -5,13 +5,14 @@ parameters:
 
 services:
     teamprovider:
-        class:    AppBundle\Service\TeamProvider
+        class:    ChooxBundle\Service\TeamProvider
     app.form.registration:
-        class: AppBundle\Form\RegistrationType
+        class: ChooxBundle\Form\RegistrationType
         tags:
           - { alias: app_user_registration, name: form.type }
     choox.image_namer:
-        class: Choox\Vich\UniqueIdNamer
+        class: ChooxBundle\Service\Vich\UniqueIdNamer
+        arguments: ["@=service('doctrine.orm.entity_manager').getRepository('ChooxBundle:Logo')"]
 #    service_name:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]

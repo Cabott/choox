@@ -68,8 +68,8 @@ doctrine:
         mappings:
             Logo:
               type: annotation
-              dir: '%kernel.root_dir%/../src/Choox/Entity'
-              prefix: Choox\Entity
+              dir: '%kernel.root_dir%/../src/ChooxBundle/Entity'
+              prefix: ChooxBundle\Entity
 
 # Swiftmailer Configuration
 swiftmailer:
@@ -96,10 +96,10 @@ assetic:
 #braincrafted bootstrap configuration
 braincrafted_bootstrap:
     output_dir:
-    assets_dir: %kernel.root_dir%/../vendor/twbs/bootstrap
-    jquery_path: %kernel.root_dir%/../vendor/jquery/jquery/jquery-1.11.1.js
+    assets_dir: '%kernel.root_dir%/../vendor/twbs/bootstrap'
+    jquery_path: '%kernel.root_dir%/../vendor/jquery/jquery/jquery-1.11.1.js'
     css_preprocessor: lessphp # "less", "lessphp", "sass" or "none"
-    fonts_dir: %kernel.root_dir%/../web/fonts
+    fonts_dir: '%kernel.root_dir%/../web/fonts'
     auto_configure:
         assetic: true
         twig: true
@@ -107,16 +107,16 @@ braincrafted_bootstrap:
         knp_paginator: true
     customize:
         variables_file: ~
-        bootstrap_output: %kernel.root_dir%/Resources/less/bootstrap.less
+        bootstrap_output: '%kernel.root_dir%/Resources/less/bootstrap.less'
         bootstrap_template: BraincraftedBootstrapBundle:Bootstrap:bootstrap.less.twig
 
 fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
-    user_class: Choox\UserBundle\Entity\User
+    user_class: ChooxBundle\UserBundle\Entity\User
     registration:
         form:
-            type: AppBundle\Form\RegistrationType
+            type: ChooxBundle\Form\RegistrationType
     from_email:
         address: "noreply@yourcompany.com"
         sender_name: "No Reply"

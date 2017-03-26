@@ -1,6 +1,6 @@
 <?php
 
-namespace Choox\Entity;
+namespace ChooxBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -16,7 +16,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  */
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="LogoRepository")
  * @ORM\HasLifecycleCallbacks()
  * @ORM\Table(name="logo")
  * @UniqueEntity("teamName");
@@ -75,7 +75,7 @@ class Logo
     /**
      * @ORM\Column(type="integer")
      * @ORM\ManyToOne(targetEntity="User", inversedBy="logos")
-     * @ORM\JoinColumn(name="user", referencedColumnName="id")
+     * @ORM\JoinColumn(name="user", referencedColumnName="id", nullable=false)
      */
     private $user;
 

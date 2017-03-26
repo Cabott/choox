@@ -1,9 +1,9 @@
 <?php
 
-namespace AppBundle;
+namespace ChooxBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class AppBundle extends Bundle
+class ChooxBundle extends Bundle
 {
 }

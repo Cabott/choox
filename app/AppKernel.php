@@ -15,13 +15,12 @@ class AppKernel extends Kernel
             new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
-            new AppBundle\AppBundle(),
+            new ChooxBundle\ChooxBundle(),
             new \Braincrafted\Bundle\BootstrapBundle\BraincraftedBootstrapBundle(),
             new \Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new \FOS\UserBundle\FOSUserBundle(),
-            new \Choox\UserBundle\ChooxUserBundle(),
-            new \Choox\ChooxBundle(),
-            new Vich\UploaderBundle\VichUploaderBundle()
+            new Vich\UploaderBundle\VichUploaderBundle(),
+            new \ChooxBundle\UserBundle\ChooxUserBundle()
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
@@ -29,6 +28,7 @@ class AppKernel extends Kernel
             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
             $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
             $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
+            $bundles[] = new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle();
         }
 
         return $bundles;

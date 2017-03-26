@@ -33,7 +33,8 @@
         "symfony/assetic-bundle": "^2.8",
         "leafo/lessphp": "dev-master",
         "friendsofsymfony/user-bundle": "~2.0@dev",
-        "guzzlehttp/guzzle": "~6.0"
+        "guzzlehttp/guzzle": "~6.0",
+        "doctrine/doctrine-migrations-bundle": "^1.2"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",

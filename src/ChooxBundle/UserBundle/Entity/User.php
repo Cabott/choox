@@ -6,8 +6,9 @@
  * Time: 10:15
  */
 
-namespace Choox\UserBundle\Entity;
+namespace ChooxBundle\UserBundle\Entity;
 
+use ChooxBundle\Entity\Logo;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
@@ -17,7 +18,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  * @UniqueEntity(fields="email", message="Email already taken")
  * @UniqueEntity(fields="username", message="Username already taken")
  * Class User
- * @package Choox\UserBundle\Entity
+ * @package ChooxBundle\UserBundle\Entity
  */
 class User extends \FOS\UserBundle\Model\User
 {
@@ -38,9 +39,7 @@ class User extends \FOS\UserBundle\Model\User
      */
     protected $points = 0;
 
-    /**
-     * @ORM\OneToMany(targetEntity="Choox\Entity\Logo", mappedBy="user")
-     */
+
     protected $logos;
 
     public function __construct()
@@ -87,11 +86,11 @@ class User extends \FOS\UserBundle\Model\User
     /**
      * Add logo
      *
-     * @param \Choox\UserBundle\Entity\Logo $logo
+     * @param Logo $logo
      *
      * @return User
      */
-    public function addLogo(\Choox\UserBundle\Entity\Logo $logo)
+    public function addLogo(Logo $logo)
     {
         $this->logos[] = $logo;
 
@@ -101,9 +100,9 @@ class User extends \FOS\UserBundle\Model\User
     /**
      * Remove logo
      *
-     * @param \Choox\UserBundle\Entity\Logo $logo
+     * @param Logo $logo
      */
-    public function removeLogo(\Choox\UserBundle\Entity\Logo $logo)
+    public function removeLogo(Logo $logo)
     {
         $this->logos->removeElement($logo);
     }

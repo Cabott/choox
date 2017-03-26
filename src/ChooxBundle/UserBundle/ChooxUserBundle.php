@@ -5,7 +5,7 @@
  * Date: 09.04.2016
  * Time: 15:46
  */
-namespace Choox\UserBundle;
+namespace ChooxBundle\UserBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

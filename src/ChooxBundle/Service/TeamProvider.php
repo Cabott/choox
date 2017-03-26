@@ -6,13 +6,14 @@
  * Time: 08:12
  */
 
-namespace AppBundle\Service;
+namespace ChooxBundle\Service;
 
 use GuzzleHttp\Client;
 use Psr\Http\Message\ResponseInterface;
 
 class TeamProvider
 {
+    /** @var  Client */
     protected $client;
     protected $header;
 
