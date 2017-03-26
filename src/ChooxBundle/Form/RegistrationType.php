@@ -10,7 +10,9 @@ class RegistrationType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('favouriteTeam');
+        $builder->add('favouriteTeam', null, [
+            'label' => 'form.favouriteTeam'
+        ]);
     }
 
     public function getParent()
