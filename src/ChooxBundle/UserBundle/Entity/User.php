@@ -56,11 +56,13 @@ class User extends \FOS\UserBundle\Model\User
     }
 
     /**
-     * @param mixed $favouriteTeam
+     * @param $favouriteTeam
+     * @return $this
      */
     public function setFavouriteTeam($favouriteTeam)
     {
         $this->favouriteTeam = $favouriteTeam;
+        return $this;
     }
 
     

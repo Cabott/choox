@@ -1,0 +1,16 @@
+default:
+    extensions:
+        Behat\MinkExtension:
+            base_url: http://localhost:8000
+            goutte: ~
+            selenium2: ~
+            browser_name: chrome
+            default_session: selenium2
+            show_cmd: 'cp %s ./tests/lastResponse.html'
+            files_path: '%paths.base%/web/images/logos/'
+        Behat\Symfony2Extension: ~
+    suites:
+        user:
+            paths: ['%paths.base%/features/user']
+        logo:
+            paths: ['%paths.base%/features/logo']
