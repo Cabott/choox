@@ -1,85 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-  <file date="2017-03-26T18:51:47Z" source-language="en" target-language="en" datatype="plaintext" original="not.available">
+  <file date="2017-04-16T13:29:21Z" source-language="en" target-language="en" datatype="plaintext" original="not.available">
     <header>
       <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
       <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
     </header>
     <body>
-      <trans-unit id="4e6c41568085a8233fb3ebfb2593cbc547bc3ca9" resname="label.logo.create">
-        <source>label.logo.create</source>
-        <target>Create Logo!</target>
-        <jms:reference-file line="41">\..\..\..\..\..\..\C:/Users/Maria Soliman/PhpstormProjects/choox/app/../src\ChooxBundle\Form\LogoType.php\</jms:reference-file>
+      <trans-unit id="1229e1090d5f7ee62a23abb457f7225ae17074e6" resname="form.favouriteTeam">
+        <source>form.favouriteTeam</source>
+        <target>Favourite team</target>
       </trans-unit>
-      <trans-unit id="bcc1adc5af50661a966abbf17a2cfe45c86250eb" resname="label.teamname.alternative">
-        <source>label.teamname.alternative</source>
-        <target>Alternative team name</target>
-        <jms:reference-file line="23">\..\..\..\..\..\..\C:/Users/Maria Soliman/PhpstormProjects/choox/app/../src\ChooxBundle\Form\LogoType.php\</jms:reference-file>
+      <trans-unit id="8b55777d19662d947d6eb15bf060a60ed08ec56a" resname="label.logo.save">
+        <source>label.logo.save</source>
+        <target>Save logo!</target>
+      </trans-unit>
+      <trans-unit id="b3ca70243cf9ba4d97bc58fe839dbbd7ec1abe89" resname="logo.add.success">
+        <source>logo.add.success</source>
+        <target>Logo added succesfully!</target>
+      </trans-unit>
+      <trans-unit id="9f8c7de994cc9a731ac46f7f31563e90fe02727a" resname="logo.create.addAlternativeName">
+        <source>logo.create.addAlternativeName</source>
+        <target>add an alternative name</target>
       </trans-unit>
       <trans-unit id="333acff0dccda2ba40a7bff304bb7600599b6116" resname="logo.create.heading">
         <source>logo.create.heading</source>
         <target>Create a new logo</target>
-        <jms:reference-file line="6">\..\..\..\..\..\..\C:/Users/Maria Soliman/PhpstormProjects/choox/app\Resources\views\logo\create.html.twig\</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="1c92f92e2e24b8cc1888eabb48da1030d2936a02" resname="logo.list.heading">
-        <source>logo.list.heading</source>
-        <target>logo.list.heading</target>
-        <jms:reference-file line="6">\..\..\..\..\..\..\C:/Users/Maria Soliman/PhpstormProjects/choox/app\Resources\views\logo\list.html.twig\</jms:reference-file>
       </trans-unit>
       <trans-unit id="4324f04e5d5c270ded81670b8fa2e9ef859f387a" resname="menu.admin">
         <source>menu.admin</source>
-        <target>menu.admin</target>
-        <jms:reference-file line="39">\..\..\..\..\..\..\C:/Users/Maria Soliman/PhpstormProjects/choox/app\Resources\views\base.html.twig\</jms:reference-file>
+        <target>Admin!</target>
       </trans-unit>
       <trans-unit id="30a3f4fdafe487b2bf08d9f7e71ef89ce1f4d0f8" resname="menu.logo">
         <source>menu.logo</source>
-        <target>menu.logo</target>
-        <jms:reference-file line="26">\..\..\..\..\..\..\C:/Users/Maria Soliman/PhpstormProjects/choox/app\Resources\views\base.html.twig\</jms:reference-file>
+        <target>Logos</target>
       </trans-unit>
       <trans-unit id="aea5268603c39c0768c6886d3d6d2a09d190a5e1" resname="menu.logo.all">
         <source>menu.logo.all</source>
-        <target>menu.logo.all</target>
-        <jms:reference-file line="30">\..\..\..\..\..\..\C:/Users/Maria Soliman/PhpstormProjects/choox/app\Resources\views\base.html.twig\</jms:reference-file>
+        <target>all</target>
       </trans-unit>
       <trans-unit id="50ddb6d11f86cb3a3c33ec1ef0a9bb50a18c6e70" resname="menu.logo.new">
         <source>menu.logo.new</source>
-        <target>menu.logo.new</target>
-        <jms:reference-file line="28">\..\..\..\..\..\..\C:/Users/Maria Soliman/PhpstormProjects/choox/app\Resources\views\base.html.twig\</jms:reference-file>
+        <target>new</target>
       </trans-unit>
       <trans-unit id="545d28870e456f333434a085da315dd94840a488" resname="menu.logo.unsolved">
         <source>menu.logo.unsolved</source>
-        <target>menu.logo.unsolved</target>
-        <jms:reference-file line="29">\..\..\..\..\..\..\C:/Users/Maria Soliman/PhpstormProjects/choox/app\Resources\views\base.html.twig\</jms:reference-file>
+        <target>usolved</target>
       </trans-unit>
       <trans-unit id="871beeaae5123699d5db717a9fad0a1b6c1e3403" resname="menu.rankings">
         <source>menu.rankings</source>
-        <target>menu.rankings</target>
-        <jms:reference-file line="34">\..\..\..\..\..\..\C:/Users/Maria Soliman/PhpstormProjects/choox/app\Resources\views\base.html.twig\</jms:reference-file>
+        <target>Rankings</target>
       </trans-unit>
       <trans-unit id="957b4c1af1038068a1e3cbc7bcf6cf9d7369ab8c" resname="menu.statistics">
         <source>menu.statistics</source>
-        <target>menu.statistics</target>
-        <jms:reference-file line="33">\..\..\..\..\..\..\C:/Users/Maria Soliman/PhpstormProjects/choox/app\Resources\views\base.html.twig\</jms:reference-file>
+        <target>Statistics</target>
       </trans-unit>
       <trans-unit id="c09361b38b905a57c685911eba57bfb3e85d2584" resname="menu.user">
         <source>menu.user</source>
-        <target>menu.user</target>
-        <jms:reference-file line="41">\..\..\..\..\..\..\C:/Users/Maria Soliman/PhpstormProjects/choox/app\Resources\views\base.html.twig\</jms:reference-file>
+        <target>User</target>
       </trans-unit>
       <trans-unit id="4482c7394c49bb1120ce5dd98f4e57886bb0e565" resname="menu.user.friends">
         <source>menu.user.friends</source>
-        <target>menu.user.friends</target>
-        <jms:reference-file line="44">\..\..\..\..\..\..\C:/Users/Maria Soliman/PhpstormProjects/choox/app\Resources\views\base.html.twig\</jms:reference-file>
+        <target>friends</target>
       </trans-unit>
       <trans-unit id="d85172db4e9a35a41acec3937b8c4af40bf3aeec" resname="menu.user.profile">
         <source>menu.user.profile</source>
-        <target>menu.user.profile</target>
-        <jms:reference-file line="43">\..\..\..\..\..\..\C:/Users/Maria Soliman/PhpstormProjects/choox/app\Resources\views\base.html.twig\</jms:reference-file>
+        <target>profile</target>
       </trans-unit>
       <trans-unit id="729291214e9cac2dcd4662f9141e433cf8eeb597" resname="menu.user.settings">
         <source>menu.user.settings</source>
-        <target>menu.user.settings</target>
-        <jms:reference-file line="46">\..\..\..\..\..\..\C:/Users/Maria Soliman/PhpstormProjects/choox/app\Resources\views\base.html.twig\</jms:reference-file>
+        <target>settings</target>
       </trans-unit>
     </body>
   </file>
