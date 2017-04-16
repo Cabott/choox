@@ -64,18 +64,19 @@ braincrafted_bootstrap:
 
 vich_uploader:
     db_driver: orm # or mongodb or propel or phpcr
+    twig:      true
     mappings:
             logo_original:
-                uri_prefix:         /images/logos
+                uri_prefix:         /images/logos/original
                 upload_destination: '%kernel.root_dir%/../web/images/logos/original'
                 namer:              Choox.image_namer
-                inject_on_load:     false
+                inject_on_load:     true
                 delete_on_update:   true
                 delete_on_remove:   true
             logo_altered:
-                uri_prefix:         /images/logos
+                uri_prefix:         /images/logos/altered
                 upload_destination: '%kernel.root_dir%/../web/images/logos/altered'
                 namer:              Choox.image_namer
-                inject_on_load:     false
+                inject_on_load:     true
                 delete_on_update:   true
                 delete_on_remove:   true

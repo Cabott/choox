@@ -39,8 +39,6 @@ twig:
     strict_variables: "%kernel.debug%"
     globals:
             teamprovider: "@teamprovider"
-    form_themes:
-        - 'VichUploaderBundle:Form:fields.html.twig'
 
 services:
     twig.text_extension:

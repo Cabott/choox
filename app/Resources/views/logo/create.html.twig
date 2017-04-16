@@ -1,15 +1,35 @@
 {% extends 'base.html.twig' %}
 
-{% form_theme form 'logo/imageUploadPreviews.html.twig' %}
+{% form_theme form 'logo/createRows.html.twig' %}
 
 {% block body %}
-    <h1>{{ 'logo.create.heading' | trans }}</h1>
-
+    <h1>{{ heading }}</h1>
     <div class="col-md-8">
-        {{ form_start(form, {'method': 'post'}) }}
-        {{ form_widget(form) }}
+        <div class="col-md-6">
+            {{ form_start(form, {'method': 'post'}) }}
+            {{ form_row(form.teamName) }}
+            {{ form_row(form.teamNameAlternatives) }}
+
+            <div class="row"><div class="col-md-12 text-right">
+            <span><a id="addAlternativeName">
+                    {{ 'logo.create.addAlternativeName' |trans }}
+                    <button type="button" class="btn btn-success btn-">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                </button>
+                    </a></span>
+                </div></div>
+
+            {{ form_row(form.teamCountry) }}
+        </div>
+
+        <div class="col-md-12">
+        {{ form_row(form.teamHint) }}
+        </div>
+        {{ form_row(form.originalLogoFile) }}
+        {{ form_row(form.alteredLogoFile) }}
         {{ form_end(form) }}
     </div>
+
 
 {% endblock %}
 
@@ -18,4 +38,6 @@
     <script src="{{ asset('js/autocomplete.js') }}" id="teamprovider" data-team-names="{{ teamprovider.getTeamNames() }}">
     </script>
     <script src="{{ asset('js/imagePreview.js') }}"></script>
+    <script src="{{ asset('js/addTeamNameAlternatives.js') }}"></script>
+
 {% endblock %}

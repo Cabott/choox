@@ -14,14 +14,14 @@ use Symfony\Component\Routing\Annotation\Route;
 class LogoController extends Controller
 {
     /**
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
      * @Route(path="/logo", name="logo_list")
      */
     public function listAction()
     {
         /** @var Logo[] $logos */
         $logos = $this->getDoctrine()->getRepository('ChooxBundle:Logo')->findAll();
-        var_dump($logos);
+
         return $this->render(':logo:list.html.twig', array('logos' => $logos));
     }
 
@@ -43,28 +43,33 @@ class LogoController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $logo->setUser($this->getUser()->getId());
+            $logo->setUser($this->getUser());
             $em = $this->getDoctrine()->getManager();
             $em->persist($logo);
             $em->flush();
 
+            unset($logo);
+            unset($form);
+
             $this->addFlash(
                 'success',
-                'Your logo has been saved! Add another one!'
+                $this->get('translator')->trans('logo.add.success')//'Your logo has been saved! Add another one!'
             );
-            $this->redirectToRoute('createLogo', array(), 201);
+            return $this->redirectToRoute('createLogo', array(), 201);
         } else {
             $this->get('logger')->log(Logger::WARNING, 'something obviously went wrong!');
         }
 
-        return $this->render('logo/create.html.twig',
-            array('form' => $form->createView()));
+        return $this->render('logo/create.html.twig', [
+            'form' => $form->createView(),
+            'heading' => $this->get('translator')->trans('logo.create.heading')
+        ]);
     }
 
     public function editAction()
     {
 
-    }
+        }
 
     public function deleteAction()
     {

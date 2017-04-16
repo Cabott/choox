@@ -2,6 +2,7 @@
 
 namespace ChooxBundle\Entity;
 
+use ChooxBundle\UserBundle\Entity\User;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
@@ -20,8 +21,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  * @ORM\HasLifecycleCallbacks()
  * @ORM\Table(name="logo")
  * @UniqueEntity("teamName");
- * @UniqueEntity("teamNameAlternative");
- * @UniqueEntity("teamNameAlternative2");
+ * @UniqueEntity("teamNameAlternatives");
  * @Vich\Uploadable
  */
 class Logo
@@ -40,15 +40,10 @@ class Logo
     private $teamName;
 
     /**
-     * @ORM\Column(type="string", length=100, nullable=true)
+     * @ORM\Column(type="json_array", length=500, nullable=true)
      *
      */
-    private $teamNameAlternative;
-
-    /**
-     * @ORM\Column(type="string", length=100, nullable=true)
-     */
-    private $teamNameAlternative2;
+    private $teamNameAlternatives;
 
     /**
      * @ORM\Column(type="string", length=100)
@@ -73,8 +68,7 @@ class Logo
     private $timesMissed = 0;
 
     /**
-     * @ORM\Column(type="integer")
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="logos")
+     * @ORM\ManyToOne(targetEntity="ChooxBundle\UserBundle\Entity\User", inversedBy="logos")
      * @ORM\JoinColumn(name="user", referencedColumnName="id", nullable=false)
      */
     private $user;
@@ -90,7 +84,7 @@ class Logo
     private $createdAt;
 
     /**
-     * @ORM\Column(type="datetime", nullable=true)
+     * @ORM\Column(type="datetime")
      */
     private $updatedAt;
 
@@ -160,51 +154,21 @@ class Logo
     }
 
     /**
-     * Set teamNameAlternative
-     *
-     * @param string $teamNameAlternative
-     *
+     * @return mixed
+     */
+    public function getTeamNameAlternatives()
+    {
+        return $this->teamNameAlternatives;
+    }
+
+    /**
+     * @param mixed $teamNameAlternatives
      * @return Logo
      */
-    public function setTeamNameAlternative($teamNameAlternative)
+    public function setTeamNameAlternatives($teamNameAlternatives)
     {
-        $this->teamNameAlternative = $teamNameAlternative;
-
+        $this->teamNameAlternatives = $teamNameAlternatives;
         return $this;
-    }
-
-    /**
-     * Get teamNameAlternative
-     *
-     * @return string
-     */
-    public function getTeamNameAlternative()
-    {
-        return $this->teamNameAlternative;
-    }
-
-    /**
-     * Set teamNameAlternative2
-     *
-     * @param string $teamNameAlternative2
-     *
-     * @return Logo
-     */
-    public function setTeamNameAlternative2($teamNameAlternative2)
-    {
-        $this->teamNameAlternative2 = $teamNameAlternative2;
-
-        return $this;
-    }
-
-    /**
-     * Get teamNameAlternative2
-     *
-     * @return string
-     */
-    public function getTeamNameAlternative2()
-    {
-        return $this->teamNameAlternative2;
     }
 
     /**
@@ -214,7 +178,7 @@ class Logo
      * must be able to accept an instance of 'File' as the bundle will inject one here
      * during Doctrine hydration.
      *
-     * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile $image
+     * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile $originalLogoFile
      *
      * @return Logo
      */
@@ -248,7 +212,7 @@ class Logo
      * must be able to accept an instance of 'File' as the bundle will inject one here
      * during Doctrine hydration.
      *
-     * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile $image
+     * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile $alteredLogoFile
      *
      * @return Logo
      */
@@ -388,7 +352,7 @@ class Logo
     /**
      * Get user
      *
-     * @return integer
+     * @return User
      */
     public function getUser()
     {
@@ -422,7 +386,6 @@ class Logo
     /**
      * Set createdAt
      *
-     * @param \DateTime $createdAt
      * @ORM\PrePersist
      *
      * @return Logo
@@ -447,14 +410,13 @@ class Logo
     /**
      * Set updatedAt
      *
-     * @param \DateTime $updatedAt
      * @ORM\PreUpdate
      *
      * @return Logo
      */
-    public function setUpdatedAt($updatedAt)
+    public function setUpdatedAt()
     {
-        $this->updatedAt = $updatedAt;
+        $this->updatedAt = new \DateTime();
 
         return $this;
     }

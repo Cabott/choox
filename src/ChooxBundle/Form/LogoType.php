@@ -1,7 +1,9 @@
 <?php
 namespace ChooxBundle\Form;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 
@@ -18,12 +20,13 @@ class LogoType extends AbstractType
     {
         $builder
             ->add('teamName')
-            ->add('teamNameAlternative', null, array(
-                'required' => false,
-                'label' => 'label.teamname.alternative'
-            ))
-            ->add('teamNameAlternative2', null, array(
-                'required'      => false
+            ->add('teamNameAlternatives', CollectionType::class, array(
+                'entry_type'    => TextType::class,
+                'allow_add'     => true,
+                'allow_delete'  => true,
+                'prototype'     => true,
+                'required'      => false,
+                'entry_options' => ['label' => false]
             ))
             ->add('teamCountry')
             ->add('teamHint')
@@ -38,7 +41,7 @@ class LogoType extends AbstractType
                 'download_link' => false
             ))
             ->add('save', SubmitType::class, [
-                'label' => 'label.logo.create',
+                'label' => 'label.logo.save',
                 'attr' => ['class' => 'btn-success']
             ])
         ;

@@ -1,0 +1,35 @@
+{# app/Resources/views/logo/createRows.html.twig #}
+
+{% block _logo_originalLogoFile_row %}
+    <div class="originalLogoFile_row col-md-6 form-group">
+        {{ form_label(form) }}
+        {{ form_errors(form) }}
+        {{ form_widget(form) }}
+    </div>
+{% endblock %}
+
+{% block _logo_alteredLogoFile_row %}
+    <div class="alteredLogoFile_row col-md-6 form-group">
+        {{ form_label(form) }}
+        {{ form_errors(form) }}
+        {{ form_widget(form) }}
+    </div>
+
+    <div class="row form-group imagePreviewRow">
+        <div class="col-md-6"><img src="#" class="img-responsive" id="originalLogoPreview" hidden /></div>
+        <div class="col-md-6"><img src="#" class="img-responsive" id="alteredLogoPreview" hidden /></div>
+    </div>
+{% endblock %}
+
+{# The block for each entry in the alternative names#}
+{%  block _logo_teamNameAlternatives_entry_widget %}
+    <div class="input-group">
+        {{ form_widget(form) }}
+
+        <span class="input-group-btn">
+            <button type="button" class="btn btn-danger" id ="removeAlternativeName">
+                <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+            </button>
+        </span>
+    </div>
+{% endblock %}
