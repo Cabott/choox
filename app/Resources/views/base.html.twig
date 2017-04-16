@@ -36,7 +36,15 @@
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                            <li><a href="#">{{ 'menu.admin' | trans }}</a></li>
+                            {% if is_granted("ROLE_ADMIN") %}
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ 'menu.admin' | trans }} <span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="{{ path('admin_logo_list') }}">{{ 'menu.admin.logo' | trans }}</a></li>
+                                        <li><a href="#">{{ 'menu.admin.user' | trans }}</a></li>
+                                    </ul>
+                                </li>
+                            {% endif %}
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ 'menu.user' | trans }}<span class="caret"></span></a>
                                 <ul class="dropdown-menu">

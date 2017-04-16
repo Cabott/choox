@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div id="wrapper">
+        <div id="container">
+            <h1>{{ 'logo.list.heading' | trans }}</h1>
+
+            {% if logos|length == 0 %}
+                {{ 'logo.list.empty' }}
+            {% endif %}
+
+            {% for logo in logos %}
+                <h2>{{ logo.teamName }} <small> {{ 'logo.list.uploadedBy' | trans }} {{ logo.user.username }}</small></h2>
+
+                <table class="table table-responsive">
+                    <thead class="thead-default">
+                    <tr>
+                        <th class="col-md-6">{{ 'logo.list.originalLogo' | trans }}</th>
+                        <th class="col-md-6">{{ 'logo.list.alteredLogo' | trans }}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td><img src="{{ vich_uploader_asset(logo, 'originalLogoFile') }}" class="img-responsive"></td>
+                        <td><img src="{{ vich_uploader_asset(logo, 'alteredLogoFile') }}" class="img-responsive"></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right"><strong>{{ 'logo.list.alternatives' | trans }}:</strong></td>
+                        <td>
+                        {% for alternative in logo.teamNameAlternatives %}
+                            {{ alternative }}<br>
+                        {% endfor %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-right"><strong>{{ 'logo.hint' | trans }}:</strong></td>
+                        <td>{{ logo.teamHint }}</td>
+                    </tr>
+                    <tr>
+                        <td class="text-right"><strong>{{ 'logo.teamCountry' | trans }}:</strong></td>
+                        <td>{{ logo.teamCountry }}</td>
+                    </tr>
+                    <tr>
+                        <td class="text-center" colspan="2">
+                            <a href="{{ path('approveLogo', {'id': logo.id}) }}">
+                                <button class="btn btn-success">{{ 'logo.accept' | trans }}</button>
+                            </a>
+                            <a href="{{ path('editLogo', {'id': logo.id}) }}">
+                                <button class="btn btn-primary">{{ 'logo.edit' | trans }}</button>
+                            </a>
+                            <a href="{{ path('deleteLogo', {'id': logo.id}) }}">
+                                <button class="btn btn-danger">{{ 'logo.reject' | trans }}</button>
+                            </a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
