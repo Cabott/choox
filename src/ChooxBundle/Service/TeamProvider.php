@@ -10,6 +10,7 @@ namespace ChooxBundle\Service;
 
 use Doctrine\Common\Cache\Cache;
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\ClientException;
 use Psr\Http\Message\ResponseInterface;
 
 class TeamProvider
@@ -19,7 +20,7 @@ class TeamProvider
     const CACHE_KEY_SEASONS_CAPTIONS = 'ApiSeasonsCaptions';
     const CACHE_KEY_TEAM_NAMES       = 'ApiTeamNames';
 
-    const API_URI_SOCCER_SEASONS = 'http://api.football-data.org/v1/soccerseasons/';
+    const API_URI_SOCCER_SEASONS = 'http://api.football-data.org/v1/competitions/';
 
     /** @var  Client */
     protected $client;
@@ -65,9 +66,13 @@ class TeamProvider
         // nothing found in cache, query API
 
         /** @var ResponseInterface $response */
-        $response = $this->client->get(self::API_URI_SOCCER_SEASONS, $this->header);
-        $result   =  json_decode($response->getBody());
-        $this->getCache()->save(self::CACHE_KEY_SEASONS_RAW, $result, $this->getSeasonsCacheLifeTime());
+        try {
+            $response = $this->client->get(self::API_URI_SOCCER_SEASONS, $this->header);
+            $result   = json_decode($response->getBody());
+            $this->getCache()->save(self::CACHE_KEY_SEASONS_RAW, $result, $this->getSeasonsCacheLifeTime());
+        } catch (ClientException $e) {
+            $result = [];
+        }
 
         return $result;
     }
@@ -103,8 +108,13 @@ class TeamProvider
         $teamNames = [];
         foreach ($seasons as $season) {
             $uri      = self::API_URI_SOCCER_SEASONS.$season->id.'/teams';
-            $response = $this->client->get($uri, $this->header);
-            $teams    = json_decode($response->getBody());
+            try {
+                $response = $this->client->get($uri, $this->header);
+                $teams    = json_decode($response->getBody());
+            } catch (ClientException $e) {
+                $teams = new \stdClass();
+                $teams->teams = [];
+            }
 
             foreach ($teams->teams as $team) {
                 if (!in_array($team->name, $teamNames)) {
