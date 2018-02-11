@@ -71,7 +71,8 @@
     "config": {
         "platform": {
             "php": "5.5.9"
-        }
+        },
+        "secure-http":false
     },
     "extra": {
         "symfony-app-dir": "app",
